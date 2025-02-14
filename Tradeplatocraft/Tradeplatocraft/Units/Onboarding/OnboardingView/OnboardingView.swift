@@ -22,114 +22,80 @@ struct OnboardingView: View {
             
             VStack {
                 Spacer()
-                NextButton(title: item.nextButtonTitle) {
+                Rectangle()
+                    .fill(.black)
+                    .frame(maxHeight: 105)
+            }
+            .ignoresSafeArea()
+            
+            
+            VStack {
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 24) {
+                    Text(item.title)
+                        .foregroundStyle(.white)
+                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 24))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    if item == .third {
-                        withAnimation {
-                            rootViewModel.setFlow(.main)
+                    Text(item.text)
+                        .foregroundStyle(.white)
+                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
+                }
+                .padding(12)
+                .background(.oceanGreen)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(.sunsetOrange, lineWidth: 3)
+                }
+                
+                VStack(spacing: 16) {
+                    Button {
+                        if item == .third {
+                            withAnimation {
+                                rootViewModel.setFlow(.main)
+                            }
+                        } else {
+                            withAnimation {
+                                currentPageIndex = item.next.rawValue
+                            }
                         }
-                    } else {
-                        withAnimation {
-                            currentPageIndex = item.next.rawValue
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Polityka prywatności")
+                                .foregroundStyle(.black)
+                                .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                        }
+                        .padding(22)
+                        .background(.sunsetOrange)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(.black, lineWidth: 3)
                         }
                     }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        viewModel.showPrivacy.toggle()
+                    } label: {
+                        Text("Polityka prywatności")
+                            .foregroundStyle(.darkGrey)
+                            .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 12))
+                            .multilineTextAlignment(.center)
+                            .padding(5)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
-            
-//            VStack(spacing: 34) {
-//                ZStack {
-//                    VStack(spacing: 20) {
-//                        Image(item.image)
-//                            .resizable()
-//                            .scaledToFit()
-//                            .padding(.top)
-//                        
-//                        Spacer()
-//                    }
-//                    .padding()
-//                    .background(.white)
-//                    .cornerRadius(48, corners: .allCorners)
-//                    
-//                    VStack {
-//                        Spacer()
-//                        
-//                        VStack(spacing: 60) {
-//                            Text(item.text)
-//                                .foregroundStyle(.black)
-//                                .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 16))
-//                                .multilineTextAlignment(.center)
-//                                .padding(.top, 100)
-//                            
-//                            HStack(spacing: 14) {
-//                                Spacer()
-//                                ForEach(0..<3, id: \.self) { index in
-//                                    if index <= currentPageIndex {
-//                                        Circle()
-//                                            .fill(.redCustom)
-//                                            .frame(width: 12)
-//                                    } else {
-//                                        Circle()
-//                                            .stroke(.redCustom, lineWidth: 1)
-//                                            .frame(width: 12)
-//                                    }
-//                                }
-//                                Spacer()
-//                            }
-//                            
-//                            NextButton(title: item.nextButtonTitle) {
-//                                withAnimation {
-//                                    currentPageIndex = item.next.rawValue
-//                                }
-//                                
-//                                if item == .third {
-//                                    viewModel.showRegistration.toggle()
-//                                }
-//                            }
-//                        }
-//                        .padding(.horizontal, 30)
-//                        .padding(.bottom)
-//                        .background(.white)
-//                        .cornerRadius(48, corners: .allCorners)
-//                        .shadow(radius: 10)
-//                    }
-//                }
-//                
-//                switch item {
-//                case .first, .second:
-//                    Button {
-//                        DispatchQueue.main.async {
-//                            withAnimation {
-//                                withAnimation {
-//                                    currentPageIndex = item.lastIndex
-//                                }
-//                            }
-//                        }
-//                    } label: {
-//                        Text("Pominąć")
-//                            .foregroundStyle(.white)
-//                            .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
-//                    }
-//                case .third:
-//                    Button {
-//                        DispatchQueue.main.async {
-//                            withAnimation {
-//                                withAnimation {
-//                                    viewModel.showPrivacyPolicy.toggle()
-//                                }
-//                            }
-//                        }
-//                    } label: {
-//                        Group {
-//                            Text("Zgadzam się z")
-//                                .foregroundColor(.white)
-//                                +
-//                            Text(" polityką prywatności")
-//                                .foregroundColor(.redCustom)
-//                        }
-//                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
-//                    }
-//                }
-//            }
+            .padding()
+        }
+        .sheet(isPresented: $viewModel.showPrivacy) {
+            SwiftUIViewWebView(url: viewModel.privacyPolicyURL)
         }
     }
 }

@@ -1,10 +1,3 @@
-//
-//  TabBarCustomView.swift
-//  Goobeltoin
-//
-//  Created by Andrii Momot on 13.06.2024.
-//
-
 import SwiftUI
 
 struct TabBarCustomView: View {
@@ -29,8 +22,8 @@ struct TabBarCustomView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(.red)
-                .cornerRadius(50, corners: [.topLeft, .topRight])
+                .fill(.forestGreen)
+                .cornerRadius(12, corners: [.topLeft, .topRight])
             
             HStack(spacing: 0) {
                 Spacer()
@@ -38,18 +31,24 @@ struct TabBarCustomView: View {
                     let item = items[index]
                     let isSelected = selectedItem == index
                     
-                    Button {
-                        DispatchQueue.main.async {
-                            withAnimation {
-                                selectedItem = index
+                    ZStack {
+                        if isSelected {
+                            Circle()
+                                .fill(.white)
+                                .frame(width: 62)
+                                .transition(AnyTransition.scale.animation(.easeInOut))
+                        }
+                        
+                        Image(item.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                            .padding(6)
+                            .onTapGesture {
+                                DispatchQueue.main.async {
+                                    selectedItem = index
+                                }
                             }
-                        }
-                    } label: {
-                        VStack(spacing: 9) {
-                            Image(item.imageName)
-                                .renderingMode(.template)
-                        }
-                        .foregroundStyle(isSelected ? .red : .black)
                     }
                     
                     Spacer()
@@ -63,6 +62,6 @@ struct TabBarCustomView: View {
     VStack {
         Spacer()
         TabBarCustomView(selectedItem: .constant(0))
-            .frame(height: 105)
+            .frame(height: 94)
     }
 }

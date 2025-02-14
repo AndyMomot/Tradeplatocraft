@@ -1,14 +1,10 @@
-//
-//  OnboardingViewModel.swift
-//  Goobeltoin
-//
-//  Created by Andrii Momot on 12.06.2024.
-//
-
 import Foundation
 
 extension OnboardingView {
-    final class OnboardingViewModel: ObservableObject {}
+    final class OnboardingViewModel: ObservableObject {
+        let privacyPolicyURL = URL(string: "https://www.google.com")
+        @Published var showPrivacy = false
+    }
     
     enum OnboardingItem: Int, CaseIterable {
         case first = 0
@@ -26,23 +22,34 @@ extension OnboardingView {
             }
         }
         
+        var title: String {
+            switch self {
+            case .first:
+                return "Tworzenie unikalnych produktów"
+            case .second:
+                return "Koszty i zarobki"
+            case .third:
+                return "Organizacja i rozwój"
+            }
+        }
+        
         var text: String {
             switch self {
             case .first:
-                return ""
+                return "Personalizacja gadżetów, malowanie ubrań i obuwia, ręczne zdobienia. Twoja kreatywność przekształcona w wyjątkowy, sprzedażowy merch."
             case .second:
-                return ""
+                return "Obliczanie wydatków na materiały, narzędzia i czas pracy. Śledzenie dochodów ze sprzedaży, analiza rentowności zamówień."
             case .third:
-                return ""
+                return "Personalizacja gadżetów, malowanie ubrań i obuwia, ręczne zdobienia. Twoja kreatywność przekształcona w wyjątkowy, sprzedażowy merch."
             }
         }
         
         var nextButtonTitle: String {
             switch self {
             case .first, .second:
-                return "NEXT"
+                return "Kontynuować"
             case .third:
-                return "GO"
+                return "Kontynuować"
             }
         }
 

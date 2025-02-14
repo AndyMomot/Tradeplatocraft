@@ -1,0 +1,22 @@
+xcassets:
+  - inputs:
+    - Tradeplatocraft/Resources/Images
+    outputs:
+      - templateName: swift5
+        output: Tradeplatocraft/Resources/Images/Images.generated.swift
+  - inputs:
+    - Tradeplatocraft/Resources/Colors/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: Tradeplatocraft/Resources/Colors/Colors.generated.swift
+        params:
+          enumName: Colors
+          
+fonts:
+  - inputs: Tradeplatocraft/Resources/Fonts
+    outputs:
+    - templateName: swift5
+      output: Tradeplatocraft/Resources/Fonts/Fonts.generated.swift
+      params:
+        enumName: Fonts
+

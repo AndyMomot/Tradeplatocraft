@@ -64,6 +64,10 @@
 		4787ED812D5F859F00C6D8FA /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787ECDB2D5F859F00C6D8FA /* ShareSheet.swift */; };
 		4787ED822D5F859F00C6D8FA /* RootContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787ED3C2D5F859F00C6D8FA /* RootContentView.swift */; };
 		4787ED842D5F85B300C6D8FA /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4787ED832D5F85B300C6D8FA /* swiftgen.yml */; };
+		47FE41622D60EAC300363FB5 /* AddOrderOrCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE415F2D60EAC300363FB5 /* AddOrderOrCostView.swift */; };
+		47FE41632D60EAC300363FB5 /* AddOrderOrCostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE41602D60EAC300363FB5 /* AddOrderOrCostViewModel.swift */; };
+		47FE416B2D60EC4B00363FB5 /* AddOrderOrCostFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE41692D60EC4B00363FB5 /* AddOrderOrCostFirstView.swift */; };
+		47FE416D2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE416C2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +130,10 @@
 		4787ED3C2D5F859F00C6D8FA /* RootContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContentView.swift; sourceTree = "<group>"; };
 		4787ED3D2D5F859F00C6D8FA /* RootContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContentViewModel.swift; sourceTree = "<group>"; };
 		4787ED832D5F85B300C6D8FA /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		47FE415F2D60EAC300363FB5 /* AddOrderOrCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostView.swift; sourceTree = "<group>"; };
+		47FE41602D60EAC300363FB5 /* AddOrderOrCostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostViewModel.swift; sourceTree = "<group>"; };
+		47FE41692D60EC4B00363FB5 /* AddOrderOrCostFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostFirstView.swift; sourceTree = "<group>"; };
+		47FE416C2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +434,7 @@
 			children = (
 				4787ED2C2D5F859F00C6D8FA /* TabBar */,
 				471A916B2D60A094001D2488 /* Home */,
+				47FE41612D60EAC300363FB5 /* AddOrderOrCost */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -482,6 +491,25 @@
 				4787ED332D5F859F00C6D8FA /* Main */,
 			);
 			path = Units;
+			sourceTree = "<group>";
+		};
+		47FE41612D60EAC300363FB5 /* AddOrderOrCost */ = {
+			isa = PBXGroup;
+			children = (
+				47FE416A2D60EC4B00363FB5 /* Views */,
+				47FE415F2D60EAC300363FB5 /* AddOrderOrCostView.swift */,
+				47FE41602D60EAC300363FB5 /* AddOrderOrCostViewModel.swift */,
+			);
+			path = AddOrderOrCost;
+			sourceTree = "<group>";
+		};
+		47FE416A2D60EC4B00363FB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47FE416C2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift */,
+				47FE41692D60EC4B00363FB5 /* AddOrderOrCostFirstView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,6 +630,8 @@
 				4787ED532D5F859F00C6D8FA /* DefaultsService.swift in Sources */,
 				4787ED542D5F859F00C6D8FA /* SwiftUIViewWebView.swift in Sources */,
 				4787ED552D5F859F00C6D8FA /* ImagePicker.swift in Sources */,
+				47FE41622D60EAC300363FB5 /* AddOrderOrCostView.swift in Sources */,
+				47FE41632D60EAC300363FB5 /* AddOrderOrCostViewModel.swift in Sources */,
 				4787ED562D5F859F00C6D8FA /* OnboardingViewTabView.swift in Sources */,
 				4787ED582D5F859F00C6D8FA /* RootViewController.swift in Sources */,
 				471A91742D60A98F001D2488 /* CompareBarChart.swift in Sources */,
@@ -611,6 +641,7 @@
 				471A916D2D60A094001D2488 /* HomeViewModel.swift in Sources */,
 				4787ED5E2D5F859F00C6D8FA /* TabBarCustomView.swift in Sources */,
 				4787ED5F2D5F859F00C6D8FA /* TabBarViewModel.swift in Sources */,
+				47FE416B2D60EC4B00363FB5 /* AddOrderOrCostFirstView.swift in Sources */,
 				4787ED622D5F859F00C6D8FA /* Fonts.generated.swift in Sources */,
 				471A917A2D60B8F9001D2488 /* IncomeCostCell.swift in Sources */,
 				4787ED632D5F859F00C6D8FA /* CustomTextField.swift in Sources */,
@@ -635,6 +666,7 @@
 				4787ED802D5F859F00C6D8FA /* PreloaderView.swift in Sources */,
 				4787ED812D5F859F00C6D8FA /* ShareSheet.swift in Sources */,
 				4787ED822D5F859F00C6D8FA /* RootContentView.swift in Sources */,
+				47FE416D2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

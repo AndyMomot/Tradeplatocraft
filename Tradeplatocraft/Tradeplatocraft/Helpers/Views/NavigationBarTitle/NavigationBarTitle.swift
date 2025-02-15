@@ -13,8 +13,8 @@ struct NavigationBarTitle: View {
     var body: some View {
         HStack {
             Text(text)
-                .foregroundStyle(.white)
-                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 40))
+                .foregroundStyle(.sunsetOrange)
+                .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 36))
             Spacer()
         }
         .navigationBarBackButtonHidden()
@@ -23,5 +23,5 @@ struct NavigationBarTitle: View {
 
 #Preview {
     NavigationBarTitle(text: "SETTINGS")
-        .background(.red)
+        .background(.green)
 }

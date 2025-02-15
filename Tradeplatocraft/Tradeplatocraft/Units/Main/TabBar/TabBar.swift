@@ -16,7 +16,7 @@ struct TabBar: View {
     
     var body: some View {
         TabView(selection: $viewModel.selection) {
-            Text("home")
+            HomeView()
                 .tag(TabBarSelectionView.home.rawValue)
                 .environmentObject(viewModel)
             

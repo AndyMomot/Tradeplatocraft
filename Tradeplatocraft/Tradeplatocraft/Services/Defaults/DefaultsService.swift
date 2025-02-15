@@ -31,47 +31,17 @@ extension DefaultsService {
 }
  
 extension DefaultsService {
-    var user: User {
+    var ordersAndCosts: [OrderCostModel] {
         get {
-            if let data = standard.data(forKey: Keys.user.rawValue),
-               let user = try? JSONDecoder().decode(User.self, from: data) {
-                return user
-            }
-            return .init(name: "Nickname")
-        }
-        set {
-            if let data = try? JSONEncoder().encode(newValue) {
-                standard.set(data, forKey: Keys.user.rawValue)
-            }
-        }
-    }
-    
-    var completedWorkoutTasks: [WorkoutTask] {
-        get {
-            if let data = standard.data(forKey: Keys.completedWorkoutTasks.rawValue),
-               let items = try? JSONDecoder().decode([WorkoutTask].self, from: data) {
+            if let data = standard.data(forKey: Keys.ordersAndCosts.rawValue),
+               let items = try? JSONDecoder().decode([OrderCostModel].self, from: data) {
                 return items
             }
             return []
         }
         set {
             if let data = try? JSONEncoder().encode(newValue) {
-                standard.set(data, forKey: Keys.completedWorkoutTasks.rawValue)
-            }
-        }
-    }
-    
-    var customWorkoutTasks: [WorkoutTask] {
-        get {
-            if let data = standard.data(forKey: Keys.customWorkoutTasks.rawValue),
-               let items = try? JSONDecoder().decode([WorkoutTask].self, from: data) {
-                return items
-            }
-            return []
-        }
-        set {
-            if let data = try? JSONEncoder().encode(newValue) {
-                standard.set(data, forKey: Keys.customWorkoutTasks.rawValue)
+                standard.set(data, forKey: Keys.ordersAndCosts.rawValue)
             }
         }
     }
@@ -81,8 +51,6 @@ extension DefaultsService {
 extension DefaultsService {
     enum Keys: String {
         case flow
-        case user
-        case completedWorkoutTasks
-        case customWorkoutTasks
+        case ordersAndCosts
     }
 }

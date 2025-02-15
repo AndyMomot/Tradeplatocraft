@@ -15,6 +15,9 @@
 		471A91762D60B080001D2488 /* IncomeCostsCompareBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A91752D60B080001D2488 /* IncomeCostsCompareBarChart.swift */; };
 		471A91782D60B63D001D2488 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A91772D60B63D001D2488 /* AddButton.swift */; };
 		471A917A2D60B8F9001D2488 /* IncomeCostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A91792D60B8F9001D2488 /* IncomeCostCell.swift */; };
+		476F4B2D2D60FEEC009288B5 /* AddOrderOrCostSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476F4B2C2D60FEEC009288B5 /* AddOrderOrCostSecondView.swift */; };
+		476F4B2F2D6101D6009288B5 /* AddOrderOrCostThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476F4B2E2D6101D6009288B5 /* AddOrderOrCostThirdView.swift */; };
+		476F4B312D610788009288B5 /* AddOrderOrCostSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476F4B302D610788009288B5 /* AddOrderOrCostSuccessView.swift */; };
 		4787ECC82D5F851F00C6D8FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4787ECBF2D5F851F00C6D8FA /* Assets.xcassets */; };
 		4787ECCA2D5F851F00C6D8FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4787ECC22D5F851F00C6D8FA /* LaunchScreen.storyboard */; };
 		4787ED402D5F859F00C6D8FA /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4787ED002D5F859F00C6D8FA /* SFPRODISPLAYREGULAR.OTF */; };
@@ -79,6 +82,9 @@
 		471A91752D60B080001D2488 /* IncomeCostsCompareBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostsCompareBarChart.swift; sourceTree = "<group>"; };
 		471A91772D60B63D001D2488 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		471A91792D60B8F9001D2488 /* IncomeCostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostCell.swift; sourceTree = "<group>"; };
+		476F4B2C2D60FEEC009288B5 /* AddOrderOrCostSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostSecondView.swift; sourceTree = "<group>"; };
+		476F4B2E2D6101D6009288B5 /* AddOrderOrCostThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostThirdView.swift; sourceTree = "<group>"; };
+		476F4B302D610788009288B5 /* AddOrderOrCostSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderOrCostSuccessView.swift; sourceTree = "<group>"; };
 		4787ECA62D5F840700C6D8FA /* Tradeplatocraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tradeplatocraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4787ECBF2D5F851F00C6D8FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4787ECC02D5F851F00C6D8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -508,6 +514,9 @@
 			children = (
 				47FE416C2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift */,
 				47FE41692D60EC4B00363FB5 /* AddOrderOrCostFirstView.swift */,
+				476F4B2C2D60FEEC009288B5 /* AddOrderOrCostSecondView.swift */,
+				476F4B2E2D6101D6009288B5 /* AddOrderOrCostThirdView.swift */,
+				476F4B302D610788009288B5 /* AddOrderOrCostSuccessView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -625,6 +634,7 @@
 				4787ED4D2D5F859F00C6D8FA /* Double+Additions.swift in Sources */,
 				4787ED4E2D5F859F00C6D8FA /* SceneDelegate.swift in Sources */,
 				4787ED512D5F859F00C6D8FA /* OnboardingViewModel.swift in Sources */,
+				476F4B2D2D60FEEC009288B5 /* AddOrderOrCostSecondView.swift in Sources */,
 				4787ED522D5F859F00C6D8FA /* Images.generated.swift in Sources */,
 				471A91782D60B63D001D2488 /* AddButton.swift in Sources */,
 				4787ED532D5F859F00C6D8FA /* DefaultsService.swift in Sources */,
@@ -652,6 +662,7 @@
 				4787ED6B2D5F859F00C6D8FA /* FileManagerService.swift in Sources */,
 				4787ED6D2D5F859F00C6D8FA /* RootContentViewModel.swift in Sources */,
 				4787ED6E2D5F859F00C6D8FA /* TabBar.swift in Sources */,
+				476F4B312D610788009288B5 /* AddOrderOrCostSuccessView.swift in Sources */,
 				4787ED702D5F859F00C6D8FA /* BackButton.swift in Sources */,
 				4787ED722D5F859F00C6D8FA /* View+Additions.swift in Sources */,
 				4787ED732D5F859F00C6D8FA /* Date+Additions.swift in Sources */,
@@ -665,6 +676,7 @@
 				4787ED7C2D5F859F00C6D8FA /* UINavigationController+Additions.swift in Sources */,
 				4787ED802D5F859F00C6D8FA /* PreloaderView.swift in Sources */,
 				4787ED812D5F859F00C6D8FA /* ShareSheet.swift in Sources */,
+				476F4B2F2D6101D6009288B5 /* AddOrderOrCostThirdView.swift in Sources */,
 				4787ED822D5F859F00C6D8FA /* RootContentView.swift in Sources */,
 				47FE416D2D60F2D600363FB5 /* AddOrderOrCostViewContainer.swift in Sources */,
 			);

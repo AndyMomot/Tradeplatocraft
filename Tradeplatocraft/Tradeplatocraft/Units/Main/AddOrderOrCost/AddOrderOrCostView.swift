@@ -25,7 +25,10 @@ struct AddOrderOrCostView: View {
             
             TabView(selection: $viewModel.currentState) {
                 AddOrderOrCostViewContainer(title: viewModel.title) {
-                    Text("First Content")
+                    AddOrderOrCostFirstView(
+                        name: $viewModel.name,
+                        date: $viewModel.date
+                    )
                 } action: { action in
                     Task {
                         await viewModel.handleContainer(action: action)
@@ -34,7 +37,10 @@ struct AddOrderOrCostView: View {
                 .tag(ViewState.first)
                 
                 AddOrderOrCostViewContainer(title: viewModel.title) {
-                    Text("Second Content")
+                    AddOrderOrCostSecondView(
+                        image: $viewModel.uiImage,
+                        price: $viewModel.price
+                    )
                 } action: { action in
                     Task {
                         await viewModel.handleContainer(action: action)
@@ -43,7 +49,11 @@ struct AddOrderOrCostView: View {
                 .tag(ViewState.second)
                 
                 AddOrderOrCostViewContainer(title: viewModel.title) {
-                    Text("Third Content")
+                    AddOrderOrCostThirdView(
+                        image: viewModel.uiImage,
+                        name: viewModel.name,
+                        price: viewModel.price,
+                        date: viewModel.date)
                 } action: { action in
                     Task {
                         await viewModel.handleContainer(action: action)
@@ -51,16 +61,23 @@ struct AddOrderOrCostView: View {
                 }
                 .tag(ViewState.third)
                 
-                Text("Success Content")
+                AddOrderOrCostSuccessView {
+                    dismiss.callAsFunction()
+                }
                     .tag(ViewState.success)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .indexViewStyle(.page(backgroundDisplayMode: .never))
+            .animation(.easeInOut, value: viewModel.currentState)
         }
+        .navigationBarBackButtonHidden()
         .onAppear {
             Task {
                 await viewModel.setTitle()
             }
+        }
+        .onReceive(viewModel.onDismissSubj) {
+            dismiss.callAsFunction()
         }
     }
 }

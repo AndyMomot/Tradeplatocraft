@@ -35,16 +35,18 @@ struct HomeView: View {
                                 
                                 ScrollView(.horizontal) {
                                     HStack(spacing: 10) {
-                                        AddButton(title: "Nowe zamówienie") {
-                                            Task {
-                                                await viewModel.addTestItem(withType: .order)
-                                            }
+                                        NavigationLink {
+                                            AddOrderOrCostView(viewType: .order)
+                                        } label: {
+                                            AddButton(title: "Nowe zamówienie") {}
+                                                .disabled(true)
                                         }
                                         
-                                        AddButton(title: "Nowy wydatek") {
-                                            Task {
-                                                await viewModel.addTestItem(withType: .cost)
-                                            }
+                                        NavigationLink {
+                                            AddOrderOrCostView(viewType: .cost)
+                                        } label: {
+                                            AddButton(title: "Nowy wydatek") {}
+                                                .disabled(true)
                                         }
                                     }
                                 }

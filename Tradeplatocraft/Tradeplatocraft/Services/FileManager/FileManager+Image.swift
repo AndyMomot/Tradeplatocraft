@@ -8,11 +8,9 @@
 import Foundation
 
 extension FileManagerService {
-    func saveImage(data: Data, for id: String) {
-        DispatchQueue.main.async {
-            let path = FileManagerService.Keys.image(id: id).path
-            saveFile(data: data, forPath: path)
-        }
+    func saveImage(data: Data, for id: String) async {
+        let path = FileManagerService.Keys.image(id: id).path
+        saveFile(data: data, forPath: path)
     }
     
     func fetchImage(with id: String, completion: @escaping (Data?) -> Void) {

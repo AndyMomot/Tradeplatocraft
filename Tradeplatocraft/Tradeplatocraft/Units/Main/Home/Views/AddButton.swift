@@ -39,7 +39,6 @@ struct AddButton: View {
             .frame(width: 115, height: 120)
             .padding(3)
         }
-        .buttonStyle(PlainButtonStyle())
     }
 }
 

@@ -14,10 +14,6 @@ struct OrderCostModel: Codable, Identifiable, Hashable {
     let date: Date
     let price: Int
     var status: Status = .inProgress
-    
-    var profit: Double {
-        Double(price) / Double.random(in: 1...2)
-    }
 }
 
 extension OrderCostModel {

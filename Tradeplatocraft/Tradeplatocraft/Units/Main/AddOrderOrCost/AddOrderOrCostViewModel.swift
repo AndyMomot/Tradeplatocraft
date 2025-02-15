@@ -91,8 +91,25 @@ extension AddOrderOrCostView.ViewModel {
         )
         
         DefaultsService.shared.ordersAndCosts.append(item)
+        
+        if uiImage != Asset.logo.image, let imageData = uiImage.pngData() {
+            await FileManagerService().saveImage(data: imageData, for: item.id)
+        }
+        
+        await cleanFields()
+        
         await MainActor.run { [weak self] in
             self?.currentState = .success
+        }
+    }
+    
+    func cleanFields() async {
+        await MainActor.run { [weak self] in
+            guard let self else { return }
+            self.name = ""
+            self.date = Date()
+            self.uiImage = Asset.logo.image
+            self.price = ""
         }
     }
 }

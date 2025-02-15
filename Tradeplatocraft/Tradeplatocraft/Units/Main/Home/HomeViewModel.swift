@@ -35,16 +35,4 @@ extension HomeView.ViewModel {
             self.ordersAndCostsItems = allItems
         }
     }
-    
-    func addTestItem(withType type: OrderCostModel.ItemType) async {
-        let item = OrderCostModel(
-            type: type,
-            name: "Item \(UUID().uuidString.prefix(10))",
-            date: .init(),
-            price: .random(in: 100...10_000)
-        )
-        
-        DefaultsService.shared.ordersAndCosts.append(item)
-        await getOrdersAndCosts()
-    }
 }

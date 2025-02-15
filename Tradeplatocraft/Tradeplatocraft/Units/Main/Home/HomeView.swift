@@ -57,6 +57,7 @@ struct HomeView: View {
                                 }
                             }
                         }
+                        .padding(.bottom, UIScreen.main.bounds.height * 0.1)
                     }
                     .scrollIndicators(.never)
                 }

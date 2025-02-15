@@ -18,7 +18,7 @@ struct IncomeCostsCompareBarChart: View {
                 .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 12))
             
             HStack(spacing: 20) {
-                createTitle(name: "Dochód", value: income)
+                createTitle(name: "Dochód", value: income, alignment: .leading)
                 
                 
                 CompareBarChart(
@@ -33,7 +33,7 @@ struct IncomeCostsCompareBarChart: View {
                     )
                 )
                 
-                createTitle(name: "Koszty", value: costs)
+                createTitle(name: "Koszty", value: costs, alignment: .trailing)
             }
             .padding()
             .background(.white)
@@ -48,8 +48,8 @@ struct IncomeCostsCompareBarChart: View {
 }
 
 extension IncomeCostsCompareBarChart {
-    func createTitle(name: String, value: Int) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+    func createTitle(name: String, value: Int, alignment: HorizontalAlignment) -> some View {
+        VStack(alignment: alignment, spacing: 8) {
             Text(name)
                 .foregroundStyle(.black)
                 .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 14))

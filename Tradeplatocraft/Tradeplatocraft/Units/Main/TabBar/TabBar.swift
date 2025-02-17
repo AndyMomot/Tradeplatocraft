@@ -20,7 +20,7 @@ struct TabBar: View {
                 .tag(TabBarSelectionView.home.rawValue)
                 .environmentObject(viewModel)
             
-            Text("orders")
+            AllOrdersView()
                 .tag(TabBarSelectionView.orders.rawValue)
                 .environmentObject(viewModel)
             

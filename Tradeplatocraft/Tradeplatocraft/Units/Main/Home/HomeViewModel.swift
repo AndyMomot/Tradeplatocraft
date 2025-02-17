@@ -13,7 +13,7 @@ extension HomeView {
         @Published var income = 0
         @Published var costs = 0
         
-        @Published var ordersAndCostsItems: [OrderCostModel] = []
+        @Published var lastOrderItems: [OrderCostModel] = []
     }
 }
 
@@ -32,7 +32,7 @@ extension HomeView.ViewModel {
             self.balance = balance
             self.income = income
             self.costs = costs
-            self.ordersAndCostsItems = allItems
+            self.lastOrderItems = Array(orderItems.suffix(3))
         }
     }
 }

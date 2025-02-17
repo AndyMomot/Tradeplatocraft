@@ -53,10 +53,8 @@ struct HomeView: View {
                                 .scrollIndicators(.never)
                             }
                             
-                            ForEach(viewModel.ordersAndCostsItems) { item in
-                                NavigationLink(value: item) {
-                                    IncomeCostCell(item: item)
-                                }
+                            ForEach(viewModel.lastOrderItems) { item in
+                                IncomeCostCell(item: item)
                             }
                         }
                         .padding(.bottom, UIScreen.main.bounds.height * 0.1)
@@ -69,9 +67,6 @@ struct HomeView: View {
                 Task {
                     await viewModel.getOrdersAndCosts()
                 }
-            }
-            .navigationDestination(for: OrderCostModel.self) { item in
-                Text(item.name)
             }
         }
     }

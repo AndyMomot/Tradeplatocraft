@@ -21,9 +21,20 @@ extension OrderCostModel {
         case order, cost
     }
     
-    enum Status: Codable {
+    enum Status: Codable, CaseIterable {
         case inProgress
         case completed
         case canceled
+        
+        var displayName: String {
+            switch self {
+            case .inProgress:
+                return "W toku"
+            case .completed:
+                return "Zrobione"
+            case .canceled:
+                return "Odwołany"
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ struct TabBar: View {
             Text("finance")
                 .tag(TabBarSelectionView.finance.rawValue)
             
-            Text("viewModel")
+            SettingsView()
                 .tag(TabBarSelectionView.settings.rawValue)
                 .environmentObject(viewModel)
         }

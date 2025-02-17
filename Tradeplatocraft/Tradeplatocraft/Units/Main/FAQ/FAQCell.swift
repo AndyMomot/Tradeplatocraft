@@ -13,7 +13,9 @@ struct FAQCell: View {
     
     var body: some View {
         Button {
-            showText.toggle()
+            withAnimation(.bouncy) {
+                showText.toggle()
+            }
         } label: {
             VStack(alignment: .leading, spacing: 20) {
                 HStack(spacing: 24) {

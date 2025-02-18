@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct AllOrdersView: View {
+    let viewType: OrderCostModel.ItemType
     @StateObject private var viewModel = ViewModel()
+    
+    init(viewType: OrderCostModel.ItemType, viewModel: ViewModel = ViewModel()) {
+        self.viewType = viewType
+        viewModel.viewType = viewType
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         ZStack {
@@ -16,7 +23,8 @@ struct AllOrdersView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 24) {
-                NavigationBarTitle(text: "Wszystkie zamówienia")
+                let title = viewType == .order ? "Wszystkie zamówienia" : "Wszystkie wydatek"
+                NavigationBarTitle(text: title)
                     .padding(.horizontal)
                 
                 HorisontalPicker(
@@ -42,12 +50,16 @@ struct AllOrdersView: View {
         }
         .onAppear {
             Task {
-                await viewModel.getOrders()
+                await viewModel.getItems()
             }
         }
     }
 }
 
 #Preview {
-    AllOrdersView()
+    AllOrdersView(viewType: .order)
+}
+
+#Preview {
+    AllOrdersView(viewType: .cost)
 }

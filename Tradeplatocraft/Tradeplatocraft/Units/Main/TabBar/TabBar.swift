@@ -20,15 +20,15 @@ struct TabBar: View {
                 .tag(TabBarSelectionView.home.rawValue)
                 .environmentObject(viewModel)
             
-            AllOrdersView()
+            AllOrdersView(viewType: .order)
                 .tag(TabBarSelectionView.orders.rawValue)
                 .environmentObject(viewModel)
             
-            Text("materials")
+            AllOrdersView(viewType: .cost)
                 .tag(TabBarSelectionView.materials.rawValue)
                 .environmentObject(viewModel)
             
-            Text("finance")
+            StatisticsView()
                 .tag(TabBarSelectionView.finance.rawValue)
             
             SettingsView()

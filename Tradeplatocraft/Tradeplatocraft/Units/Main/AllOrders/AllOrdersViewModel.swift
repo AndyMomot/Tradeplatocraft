@@ -13,20 +13,21 @@ extension AllOrdersView {
         @Published var selectedOrderStatus = "Wszystko" {
             didSet {
                 Task {
-                    await getOrders()
+                    await getItems()
                 }
             }
         }
         
         @Published var orders: [OrderCostModel] = []
+        var viewType: OrderCostModel.ItemType = .order
     }
 }
 
 extension AllOrdersView.ViewModel {
-    func getOrders() async {
+    func getItems() async {
         let allItems = DefaultsService.shared.ordersAndCosts
         var orders: [OrderCostModel] {
-            var result = allItems.filter { $0.type == .order }
+            var result = allItems.filter { $0.type == viewType }
             if let status = OrderCostModel.Status.allCases.first(where: { $0.displayName == selectedOrderStatus }) {
                 result = result.filter { $0.status == status }
             }
@@ -44,17 +45,17 @@ extension AllOrdersView.ViewModel {
         switch action {
         case .delete(let id):
             DefaultsService.shared.ordersAndCosts.removeAll(where: { $0.id == id })
-            await getOrders()
+            await getItems()
         case .changeStatus(let id, let statusName):
             guard let status = OrderCostModel.Status.allCases.first(where: { $0.displayName == statusName }) else {
-                await getOrders()
+                await getItems()
                 return
             }
             
             let shared = DefaultsService.shared
             if let index = shared.ordersAndCosts.firstIndex(where: { $0.id == id }) {
                 shared.ordersAndCosts[index].status = status
-                await getOrders()
+                await getItems()
             }
         }
     }

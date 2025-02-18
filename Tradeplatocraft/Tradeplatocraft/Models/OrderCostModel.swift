@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderCostModel: Codable, Identifiable, Hashable {
+struct OrderCostModel: Codable, Identifiable, Hashable, Equatable {
     private(set) var id = UUID().uuidString
     let type: ItemType
     let name: String
@@ -17,11 +17,20 @@ struct OrderCostModel: Codable, Identifiable, Hashable {
 }
 
 extension OrderCostModel {
-    enum ItemType: Codable {
+    enum ItemType: Codable, CaseIterable, Equatable {
         case order, cost
+        
+        var displayName: String {
+            switch self {
+            case .order:
+                return "zamówienie"
+            case .cost:
+                return "wydatek"
+            }
+        }
     }
     
-    enum Status: Codable, CaseIterable {
+    enum Status: Codable, CaseIterable, Equatable {
         case inProgress
         case completed
         case canceled

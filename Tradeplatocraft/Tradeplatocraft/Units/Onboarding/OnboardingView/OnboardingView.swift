@@ -64,7 +64,7 @@ struct OnboardingView: View {
                     } label: {
                         HStack {
                             Spacer()
-                            Text("Polityka prywatności")
+                            Text(item.nextButtonTitle)
                                 .foregroundStyle(.black)
                                 .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                                 .multilineTextAlignment(.center)
